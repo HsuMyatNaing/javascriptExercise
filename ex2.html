@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+    
+<head>
+    <script>
+        function evenFunction(){
+          var num1=parseInt(document.getElementById("num1").value);
+          var num2=parseInt(document.getElementById("num2").value);
+          for(var i=num1; i<=num2; i++){
+             if(i%2==0){
+                 document.getElementById("lbl1").innerHTML+=i +" ";
+             }
+          
+             
+          }
+        }
+        function clearFunction(){
+                var result=confirm("Are you sure want to delete?");
+                if(result==true){
+                    document.getElementById('num1').value="";
+                    document.getElementById('num2').value="";
+                    document.getElementById('lbl1').innerHTML="";
+                }
+            }
+        function oddFunction(){
+          var num1=parseInt(document.getElementById("num1").value);
+          var num2=parseInt(document.getElementById("num2").value);
+          for(var i=num1; i<=num2; i++){
+             if(i%2!=0){
+                 document.getElementById("lbl1").innerHTML+=i +" ";
+             }
+                
+             }
+             
+             
+          }
+
+        
+        
+        
+    </script>
+    
+</head>
+<body>
+    
+        
+          <label for="firstNo">Enter First Number</label><br>
+          <input type="text" id="num1"><br>
+          <label for="secNo">Enter Second Number</label><br>
+          <input type="text" id="num2"><br><br>
+          <button  onclick="evenFunction()">Even</button>
+          <button  onclick="oddFunction()">Odd</button>
+          <button  onclick="clearFunction()">Reset</button>
+
+        
+      
+      <h3 id="lbl1"></h3>
+      
+</body>
+</html>

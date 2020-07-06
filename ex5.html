@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function mulFunction(){
+            var num=parseInt(document.getElementById('txt').value);
+            for(var i=1;i<=12;i++){
+                document.getElementById('lbl2').innerHTML+=num+"*"+i+"="+num*i+"<br>";
+            }
+            }
+            function clearFunction(){
+                
+                
+                    document.getElementById('txt').value="";
+                    
+                    document.getElementById('lbl2').innerHTML="";
+                
+            }
+        </script>
+
+    </head>
+    <body>
+        <label id="lbl1">Enter number</label>
+        <input type="text" id="txt">
+        <button onclick="mulFunction()">Multiply</button>
+        <button onclick="clearFunction()">clear</button><br>
+        <label id="lbl2"></label>
+
+    </body>
+
+    </html>
+</html>
