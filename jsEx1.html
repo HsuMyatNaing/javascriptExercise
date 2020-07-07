@@ -1,0 +1,40 @@
+<!doctype html>
+<htmL>
+    <head>
+        <script>
+           
+            function dividedFunction(){
+                var number="";
+                var num1=parseInt(document.getElementById('num1').value);
+                var num2=parseInt(document.getElementById('num2').value);
+
+            for(var i=num1;i<=num2;i++){
+
+                if(i%2==0 && i%5==0){
+                    number+=i+" ";
+                }
+                                    
+
+            
+            document.getElementById('lbl1').innerHTML=number;
+            }
+
+
+         }
+        </script>
+        
+        
+    </head>
+    <body>
+        <label for="firstNo">Enter First Number</label>
+        <input type="text" id="num1"><br><br>
+        <label for="secNo">Enter Second Number</label>
+        <input type="text" id="num2"><br><br>
+        <button  onclick="dividedFunction()">Divided by2&5</button><br><br>
+        <label id="lbl1"></label>
+
+        
+
+
+    </body>
+</htmL>
