@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .fCols{
+            float: left;
+        }
+        .fCols::after{
+           content:"";
+           display: table;
+           clear:both;
+        }
+        
+        input[tupe=chekbox]{
+            width:70px;
+            height: 70px;
+        }
+        input[type=text]{
+            width:200px;
+            height:20px;
+        }
+        .row{
+          
+          width:700px;
+          height: 300px;
+          padding:10px;
+          margin:20px;
+       }
+        
+        .sCols{
+            float:right;
+        }
+        
+        #tid{
+            border-collapse: collapse;
+            width:50%;
+        }
+        table,td,th{
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th,td{
+            padding:5px;
+        }
+    </style>
+</head>
+<body>
+<div class="row">
+<div class="fCols">
+    <label>Enter Name:</label>
+    <input type="text" id="name" placeholder="Enter Name"><br><br>
+    <label>Enter Phone:</label>
+    <input type="text" id="phno" placeholder="Enter Phone"><br><br>
+    <label>Enter Email:</label>
+    <input type="text" id="email" placeholder="Enter Email"><br><br>
+    <label>Enter Year:</label>
+    <input type="text" id="year" placeholder="Enter Year"><br><br>
+
+
+    <label>Enter Address:</label>
+    <input type="text" id="address" placeholder="Address"><br><br>
+    <label>select gender:</label>
+    <input type="radio" id="male" name="gender" value="Male">
+    <label for="male">Male</label>&nbsp;&nbsp;&nbsp;
+    <input type="radio" id="female" name="gender" value="Female">
+    <label for="female">Female</label><br><br>
+    <label>select subject:</label>
+    <input type="checkbox" class="subject" name="subject1" value="501">
+    <label for="sub1"> 501</label>&nbsp;&nbsp;&nbsp;
+    <input type="checkbox" class="subject" name="subject2" value="502">
+    <label for="sub2"> 502</label>&nbsp;&nbsp;&nbsp;
+    <input type="checkbox" class="subject" name="subject3" value="503">
+    <label for="sub3">503</label><br><br>
+    <button type="button" id="btn" onclick="stuInfo()">Save</button>
+</div>
+</div>
+
+<table id="tid">
+      <tr style="background-color:cadetblue;">
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Year</th>
+        <th>Address</th>
+        <th>Gender</th>
+        <th>Subject</th>
+      </tr>
+</table>
+<script>
+    function stuInfo(){
+    var name=document.getElementById("name").value;
+    var phno=document.getElementById("phno").value;
+    var email=document.getElementById("email").value;
+    var year=document.getElementById("year").value;
+    var address=document.getElementById("address").value;
+    var checkedValue="";
+    var input=document.getElementsByClassName('subject');
+    for(var i=0; i<input.length; i++){
+        if(input[i].checked){
+            checkedValue+=input[i].value;
+        }
+    }
+    var radio="";
+    var gen= document.getElementsByName('gender'); 
+    for(i = 0; i < gen.length; i++) { 
+       if(gen[i].checked) 
+         radio=gen[i].value; 
+     } 
+     var table=document.getElementById("tid");
+      var tr=document.createElement("tr");
+     table.appendChild(tr);
+
+      var td1=document.createElement("td");
+      var n=document.createTextNode(name);
+      td1.appendChild(n);
+      tr.appendChild(td1);
+
+      var td2=document.createElement("td");
+      var p=document.createTextNode(phno);
+      td2.appendChild(p);
+      tr.appendChild(td2);
+
+      var td3=document.createElement("td");
+      var e=document.createTextNode(email);
+      td3.appendChild(e);
+      tr.appendChild(td3);
+
+      var td4=document.createElement("td");
+      var y=document.createTextNode(year);
+      td4.appendChild(y);
+      tr.appendChild(td4);
+
+      var td5=document.createElement("td");
+      var a=document.createTextNode(address);
+      td5.appendChild(a);
+      tr.appendChild(td5);
+
+      var td6=document.createElement("td");
+      var r=document.createTextNode(radio);
+      td6.appendChild(r);
+      tr.appendChild(td6);
+
+      var td7=document.createElement("td");
+      var c=document.createTextNode(checkedValue);
+      td7.appendChild(c);
+tr.appendChild(td7);
+      
+      
+}
+</script>
+</body>
+</html>
