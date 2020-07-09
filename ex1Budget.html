@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            .budget{
+                height: 100px;
+                width:300px;
+                border:1px solid #333;
+                padding:10px;
+                background-color: cyan;
+                grid-column: 1/3;
+            }
+            .style{
+                width:400px;
+            }
+            .experse{
+                height: 200px;
+                width:300px;
+                border:1px solid #333;
+                padding:10px;
+                background-color: cyan;
+                grid-column: 1/3;
+    
+            }
+            .input{
+                background-color:white;
+                width: 70%;
+                border:1px solid cornsilk;
+            }
+            .lab{
+               
+                margin:20px;
+            }
+            
+            .grid_Container{
+                display: grid;
+    grid-template-columns:auto auto auto auto auto ;
+    grid-template-rows: auto auto;
+    grid-gap: 50px 10px;
+    margin-left: 10%;
+    margin-right:10% ;
+            }
+          .tb{
+              
+    grid-column: 3/6;
+    margin-left: 10px;
+}
+th,td{
+    text-align: center;
+    padding-left: 60px;
+    padding-top: 5px;
+    padding-right:60px;
+    padding-bottom: 5px;;
+    
+    margin: 20px;
+    
+}
+            
+        </style>
+    </head>
+    <body>
+        
+        
+            
+        
+        <div class="grid_Container">
+            <h2 style="padding-left: 20px;">BUDGET APP</h2>
+            <div class="budget" style="padding-top: 30px;">
+                <label>Please enter your budget</label><br>
+                <input type="text" class="input" id="txt1" ><br>
+                <button class="btn" id="btnBudget">Calculate</button>
+            </div>
+            <div style="text-align: center;">
+                <h3>BUDGET</h3>
+                <i class="fa fa-money" style="color: purple;font-size: 30px;"></i><br><br>
+                <i class="fa fa-dollar" style="color: purple;font-size: 20px;"></i>
+                <lable id="totalAmount"></lable>
+            </div>
+            <div style="text-align: center;">
+                <h3>EXPENSES</h3>
+                <i class="fa fa-credit-card" style="color: purple;font-size: 30px;"></i><br><br>
+                <i class="fa fa-dollar" style="color: purple;font-size: 20px;"></i>
+                <label id="experse" style="color: green;"></label>
+            </div>  
+            <div style="text-align: center;">
+                <h3>BALANCE</h3>
+                <i class="fa fa-dollar" style="color: purple;font-size: 30px;"></i><br><br>
+                <i class="fa fa-dollar" style="color: purple;font-size: 20px;"></i>
+                <label id="balance"></label>
+            </div>  
+            <div class="experse" style="padding-top: 30px;">
+                <label>Please Enter your expense</label><br>
+                <input type="text" class="input" id="txt2"><br><br>
+                <label>Please Enter expense Amount</label><br>
+                <input type="text" class="input" id="txt3"><br><br>
+                <button class="btn" id="addExperse">Add Experse</button>  
+        
+            </div>
+            <div class="tb">
+                <table id="tb1" >
+                    <tr>
+                        <th>Expense Title</th>
+                        <th>Expense Value</th>
+                        
+                    </tr>    
+                    
+                </table>
+            </div>
+    
+            
+        </div>
+        <script>
+            
+            $(document).ready(function(){
+                var totalBudget=0;
+                $("#btnBudget").click(function(){
+                   
+                    var textValue=$("#txt1").val();
+                    var value=parseInt(textValue);
+                    totalBudget+=value;
+                    $("#totalAmount").text(totalBudget);
+                    $("#balance").text(totalBudget);
+                    
+
+
+                });
+
+                var experse_Value=0;
+                    
+                $("#addExperse").click(function(){
+
+                    var tValue=$("#txt3").val();
+                    console.log(tValue);
+                   var eValue=parseInt(tValue);
+                    experse_Value+=eValue;
+                    $("#experse").text(experse_Value);
+
+                    var bValue=parseInt(totalBudget)-parseInt(experse_Value);
+                    $("#balance").text(bValue);
+
+
+                    var i=0;
+                    var expense_Title=[];
+                    var expenseInput=[];
+                    var edit_btn=[];
+                    var remove_btn=[];
+
+                    var etext=$("#txt2").val();
+                    expense_Title[i]=etext;
+                    expenseInput[i]=eValue;
+                    edit_btn[i]="<button><i class='fa fa-edit'></i></button>";
+                     remove_btn[i]="<i class='fa fa-trash'></i>";    
+                     $("#tb1").append("<tr><td>"+expense_Title[i]+"</td><td>"+expenseInput[i]+"</td><td>"+edit_btn+"</td><td>"+remove_btn+"</td></tr>");
+                     i++;
+                            
+                });
+            });
+            
+
+
+
+        </script>
+            
+
+        
+    </body>
+</html>
